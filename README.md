@@ -84,7 +84,7 @@ This will give us insight into how you approached the challenge.
 
 ### Deployment
 
-When you're done, please deploy your project to [Heroku](https://dashboard.heroku.com). You may deploy to another service (such as AWS), but please include your reasoning behind this choice. Afterward, send a link to your repo. If you have chosen to make your repo private, please add `jarell-lloyd` and `fieldsco` as an admin so we can see your work.
+When you're done, please deploy your project to [Heroku](https://dashboard.heroku.com). You may deploy to another service (such as AWS), but please include your reasoning behind this choice. Afterward, send a link to your repo. If you have chosen to make your repo private, please add `forgingdestiny` as an admin so we can see your work.
 
 ## Show us your other projects! (optional)
 
