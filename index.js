@@ -3,7 +3,6 @@ const app = express();
 const bodyParser = require("body-parser");
 
 app.use(bodyParser.json());
-app.get('/', (req, res) => res.send('Hello World!!'))
 
 if (process.env.NODE_ENV === "production") {
 	// serve production assests
