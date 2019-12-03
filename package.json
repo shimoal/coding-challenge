@@ -1,0 +1,24 @@
+{
+  "name": "coding-challenge",
+  "version": "1.0.0",
+  "description": "Our coding challenge is your opportunity to demonstrate your experience, skills, and aptitude by building a prototype of the web’s most minimal referral automation software.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "client": "cd referral-app && npm start",
+    "server": "nodemon index.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix referral-app && npm run build --prefix referral-app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shimoal/coding-challenge.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shimoal/coding-challenge/issues"
+  },
+  "homepage": "https://github.com/shimoal/coding-challenge#readme"
+}
