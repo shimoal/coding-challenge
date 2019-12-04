@@ -7,7 +7,7 @@ const LinkListItem = ({ linkName }) => (
     <Link to={ linkName }>
       { linkName }
     </Link>
-    <Button optClass='danger'>
+    <Button className='btn danger'>
       Delete
     </Button>
   </div>

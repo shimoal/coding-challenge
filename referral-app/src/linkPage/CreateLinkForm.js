@@ -38,7 +38,7 @@ class CreateLinkForm extends React.Component {
           optClass={formStyle.field}
           placeholder='my new link'
         />
-        <Button type='submit'>Submit</Button>
+        <Button className='btn' type='submit'>Submit</Button>
       </FormGroup>
     )
   }
