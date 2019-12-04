@@ -1,11 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import LinkListItem from './LinkListItem'
 
 const LinkList = ({ linkNames }) => (
   <div>
     {
       linkNames.map((linkName, i) => (
-        <div key={`link-${i}`}>{ linkName }</div>
+        <LinkListItem key={`link-${i}`} linkName={ linkName } />
       ))
     }
   </div>
