@@ -3,6 +3,7 @@ import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './App.css';
 import LinkPage from './linkPage/LinkPage'
+import LandingPage from './landingPages/LandingPage'
 import store from './redux/store'
 
 const App = () => {
@@ -11,6 +12,9 @@ const App = () => {
       <div className="App">
         <Router >
           <Switch>
+            <Route path='/:pageTitle'>
+              <LandingPage />
+            </Route>
             <Route exact path='/'>
               <LinkPage />
             </Route>
