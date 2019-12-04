@@ -1,8 +1,10 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import FormGroup from 'react-ions/lib/components/FormGroup'
 import Input from 'react-ions/lib/components/Input'
 import Button from 'react-ions/lib/components/Button'
 import formStyle from 'react-ions/lib/components/FormGroup/style.scss'
+import { addLink } from '../redux/actions'
 
 class CreateLinkForm extends React.Component {
   state = {
@@ -19,7 +21,7 @@ class CreateLinkForm extends React.Component {
 
   handleSubmit = (event, fields) => {
     event.preventDefault()
-    alert(JSON.stringify(fields, 2, null))
+    this.props.dispatch(addLink(fields['link-name'].value))
   }
 
   render() {
@@ -43,4 +45,4 @@ class CreateLinkForm extends React.Component {
   }
 }
 
-export default CreateLinkForm
+export default connect(null)(CreateLinkForm)

@@ -1,11 +1,7 @@
 import { ADD_LINK } from './actions'
 
-const initialState = {
-  linkNames: []
-}
+const initialState = []
 
 export const linkNames = (state = initialState, { type, linkName }) => (
-  type === ADD_LINK
-    ? { ...state, linkNames: [ ...state.linkNames, linkName ]}
-    : state
+  type === ADD_LINK ? [ ...state, linkName ] : state
 )
