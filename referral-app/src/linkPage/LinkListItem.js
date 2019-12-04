@@ -1,14 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Button from 'react-ions/lib/components/Button'
 
 const LinkListItem = ({ linkName }) => (
-  <Link to={ linkName }>
-    <div>
-      {
-        linkName
-      }
-    </div>
-  </Link>
+  <div>
+    <Link to={ linkName }>
+      { linkName }
+    </Link>
+    <Button optClass='danger'>
+      Delete
+    </Button>
+  </div>
 )
 
 export default LinkListItem
