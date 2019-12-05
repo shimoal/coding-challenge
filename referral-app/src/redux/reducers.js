@@ -1,16 +1,16 @@
-import { ADD_LINK, DELETE_LINK, EDIT_LINK, CLICK_LINK } from './actions'
+import { ADD_LINK, ADD_LINKS, DELETE_LINK, EDIT_LINK, CLICK_LINK } from './actions'
 import uniqid from 'uniqid'
 
 const initialState = []
 
-export const links = (state = initialState, { type, linkId, linkName, newLinkName }) => {
+export const links = (state = initialState, { type, link, links, linkId, linkName, newLinkName }) => {
   const newState = [ ...state ]
   const i = state.findIndex(({ id }) => id === linkId )
-  const link = newState[i]
   switch (type) {
     case ADD_LINK:
-      const newLink = { id: uniqid(), linkName, clicked: 0 }
-      return [ ...state, newLink ]
+      return [ ...state, link ]
+    case ADD_LINKS:
+      return links
     case DELETE_LINK:
       newState.splice(i, 1)
       return newState

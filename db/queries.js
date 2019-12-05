@@ -2,8 +2,11 @@ const db = require('./database')
 const Link = require('./LinkModel')
 
 const findAllLinks = (req, res) => {
-  const links = Link.findAll()
-  res.status(200).send(links)
+  const links = Link
+    .findAll()
+    .then((data) => {
+      res.json(data)
+    })
 }
 
 const createLink = (req, res) => {
