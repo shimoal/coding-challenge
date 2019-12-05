@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const query = require("./db/queries.js");
 const bodyParser = require("body-parser");
+const path = require("path");
 
 app.use(bodyParser.json());
 
@@ -14,8 +15,6 @@ app.delete('/api/link/:linkId', query.deleteLink)
 if (process.env.NODE_ENV === "production") {
 	// serve production assests
 	app.use(express.static("referral-app/build"));
-	// serve html file if non specified route
-	const path = require("path");
 	app.get("*", (req, res) => {
 		res.sendFile(path.resolve(__dirname, "referral-app", "build", "index.html"));
 	});

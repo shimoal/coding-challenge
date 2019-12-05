@@ -16,7 +16,6 @@ export const addLinks = links => {
 }
 
 const deleteLinkId = linkId => {
-  console.log('linkId of delete', linkId)
   return { type: DELETE_LINK, linkId }
 }
 
@@ -46,20 +45,9 @@ export const fetchLinks = () => dispatch => {
     })
 }
 
-export const updateLinkName = (linkId, linkName) => dispatch => {
+export const updateLink = (linkId, updateData) => dispatch => {
   axios
-    .put(`/api/link/${linkId}`, { linkName })
-    .then(({ data }) => {
-      dispatch(editLink(data))
-    })
-    .catch(error => {
-      console.log('error:', error)
-    })
-}
-
-export const updateClickCount = (linkId, clickCount) => dispatch => {
-  axios
-    .put(`/api/link/${linkId}`, { clickCount })
+    .put(`/api/link/${linkId}`, updateData)
     .then(({ data }) => {
       dispatch(editLink(data))
     })
@@ -72,7 +60,6 @@ export const deleteLink = linkId => dispatch => {
   axios
     .delete(`/api/link/${linkId}`)
     .then(data => {
-      console.log('linkId:', linkId)
       dispatch(deleteLinkId(linkId))
     })
     .catch(error => {
