@@ -44,7 +44,7 @@ class LinkListItem extends React.Component {
             { linkName }
           </Link>
         }
-        <div>
+        <div className='buttons'>
           <Button
             className='btn'
             onClick={ this.editName }

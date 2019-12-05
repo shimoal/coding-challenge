@@ -19,9 +19,13 @@
       color: $primary-6;
     }
   }
+  .buttons {
+    min-width: 128px;
+  }
 }
 
 .link-click-tracker {
+  min-width: 90px;
   p {
     font-size: small;
     margin: 0;
