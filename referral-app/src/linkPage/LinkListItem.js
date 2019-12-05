@@ -4,6 +4,7 @@ import InlineEdit from 'react-ions/lib/components/InlineEdit'
 import Button from 'react-ions/lib/components/Button'
 import { connect } from 'react-redux'
 import { deleteLink, editLink } from '../redux/actions'
+import './LinkList.scss'
 
 class LinkListItem extends React.Component {
   state = {
@@ -24,7 +25,7 @@ class LinkListItem extends React.Component {
     const { linkName, dispatch } = this.props
     const { newLinkName, isEditing } = this.state
     return (
-      <div>
+      <div className='link-list-item'>
         { this.state.isEditing ?
           <InlineEdit
             name='new-link-name'
