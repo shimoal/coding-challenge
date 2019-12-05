@@ -1,0 +1,32 @@
+@import 'react-ions/src/styles/common/colors';
+
+form {
+  width: fit-content;
+  margin: 12px auto;
+  background: $neutral-3;
+  fieldset {
+    border: none;
+    h2 {
+      font-size: 1.3em;
+    }
+  }
+}
+
+.fieldset-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  button {
+    height: fit-content;
+    margin: 4px;
+  }
+}
+
+.input-component {
+  text-align: left;
+  margin: 4px;
+  input {
+    width: 400px;
+    padding: 2px;
+  }
+}

@@ -4,6 +4,7 @@ import FormGroup from 'react-ions/lib/components/FormGroup'
 import Input from 'react-ions/lib/components/Input'
 import Button from 'react-ions/lib/components/Button'
 import formStyle from 'react-ions/lib/components/FormGroup/style.scss'
+import './CreateLinkForm.scss'
 import { addLink } from '../redux/actions'
 
 const initialSchema = { 'link-name': { value: '' } }
@@ -31,14 +32,17 @@ class CreateLinkForm extends React.Component {
         debounceTime={100}
         schema={this.state.schema}
       >
-        <Input
-          name='link-name'
-          label='Link Name'
-          type='text'
-          optClass={formStyle.field}
-          placeholder='my new link'
-        />
-        <Button className='btn' type='submit'>Submit</Button>
+        <h2>Add new link to list</h2>
+        <div className='fieldset-container'>
+          <Input
+            name='link-name'
+            label='Link Name'
+            type='text'
+            optClass={formStyle.field}
+            placeholder='my new link'
+          />
+          <Button className='btn' type='submit'>Submit</Button>
+        </div>
       </FormGroup>
     )
   }
