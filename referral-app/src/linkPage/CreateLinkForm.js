@@ -5,7 +5,7 @@ import Input from 'react-ions/lib/components/Input'
 import Button from 'react-ions/lib/components/Button'
 import formStyle from 'react-ions/lib/components/FormGroup/style.scss'
 import './CreateLinkForm.scss'
-import { addLink } from '../redux/actions'
+import { addLink, createLink } from '../redux/actions'
 
 const initialSchema = { 'link-name': { value: '' } }
 
@@ -20,7 +20,7 @@ class CreateLinkForm extends React.Component {
 
   handleSubmit = (event, fields) => {
     event.preventDefault()
-    this.props.dispatch(addLink(fields['link-name'].value))
+    this.props.dispatch(createLink(fields['link-name'].value))
     this.setState({ schema: initialSchema })
   }
 

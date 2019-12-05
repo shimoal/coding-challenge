@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 /* Action types */
 export const ADD_LINK = 'ADD_LINK'
 export const DELETE_LINK = 'DELETE_LINK'
@@ -19,4 +21,15 @@ export const editLink = (linkId, newLinkName) => {
 
 export const clickLink = linkId => {
   return { type: CLICK_LINK, linkId }
+}
+
+export const createLink = linkName => dispatch => {
+  axios
+    .post('/api/links', { linkName })
+    .then(data => {
+      console.log('data:', data)
+    })
+    .catch(error => {
+      console.log('error', error)
+    })
 }
