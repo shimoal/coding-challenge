@@ -24,13 +24,29 @@ const createLink = (req, res) => {
 
 const updateLink = (req, res) => {
   const { linkName, clickCount } = req.body
-  if (linkName) {
+  console.log('linkName', linkName)
+  console.log('clickCount:', clickCount)
+  // if (!!linkName) {
+  //   Link.update({
+  //     linkName: linkName,
+  //   },
+  //   {
+  //     returning: true, where: {id: req.params.linkId}
+  //   }).then(data => {
+  //     res.json(data[1][0])
+  //   }).catch((err) => {
+  //     console.log("ERROR UPDATING LINK: ", err)
+  //   })
+  // }
+
+  if (clickCount) {
     Link.update({
-      linkName: linkName,
+      clickCount: clickCount,
     },
     {
       returning: true, where: {id: req.params.linkId}
     }).then(data => {
+      console.log('data:', data)
       res.json(data[1][0])
     }).catch((err) => {
       console.log("ERROR UPDATING LINK: ", err)

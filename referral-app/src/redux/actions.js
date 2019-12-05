@@ -5,7 +5,6 @@ export const ADD_LINK = 'ADD_LINK'
 export const ADD_LINKS = 'ADD_LINKS'
 export const DELETE_LINK = 'DELETE_LINK'
 export const EDIT_LINK = 'EDIT_LINK'
-export const CLICK_LINK = 'CLICK_LINK'
 
 /* Action creators */
 export const addLink = link => {
@@ -24,14 +23,10 @@ export const editLink = link => {
   return { type: EDIT_LINK, link }
 }
 
-export const clickLink = linkId => {
-  return { type: CLICK_LINK, linkId }
-}
-
 export const createLink = linkName => dispatch => {
   axios
     .post('/api/links', { linkName })
-    .then(data => {
+    .then(({ data }) => {
       dispatch(addLink(data))
     })
     .catch(error => {
@@ -50,9 +45,20 @@ export const fetchLinks = () => dispatch => {
     })
 }
 
-export const updateLink = (linkId, linkName) => dispatch => {
+export const updateLinkName = (linkId, linkName) => dispatch => {
   axios
     .put(`/api/link/${linkId}`, { linkName })
+    .then(({ data }) => {
+      dispatch(editLink(data))
+    })
+    .catch(error => {
+      console.log('error:', error)
+    })
+}
+
+export const updateClickCount = (linkId, clickCount) => dispatch => {
+  axios
+    .put(`/api/link/${linkId}`, { clickCount })
     .then(({ data }) => {
       dispatch(editLink(data))
     })
