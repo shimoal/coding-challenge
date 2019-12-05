@@ -9,6 +9,7 @@ app.use(bodyParser.json());
 app.get('/api/links', query.findAllLinks)
 app.post('/api/links', query.createLink)
 app.put('/api/link/:linkId', query.updateLink)
+app.delete('/api/link/:linkId', query.deleteLink)
 
 if (process.env.NODE_ENV === "production") {
 	// serve production assests

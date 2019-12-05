@@ -24,20 +24,18 @@ const createLink = (req, res) => {
 
 const updateLink = (req, res) => {
   const { linkName, clickCount } = req.body
-  console.log('linkName', linkName)
-  console.log('clickCount:', clickCount)
-  // if (!!linkName) {
-  //   Link.update({
-  //     linkName: linkName,
-  //   },
-  //   {
-  //     returning: true, where: {id: req.params.linkId}
-  //   }).then(data => {
-  //     res.json(data[1][0])
-  //   }).catch((err) => {
-  //     console.log("ERROR UPDATING LINK: ", err)
-  //   })
-  // }
+  if (linkName) {
+    Link.update({
+      linkName: linkName,
+    },
+    {
+      returning: true, where: {id: req.params.linkId}
+    }).then(data => {
+      res.json(data[1][0])
+    }).catch((err) => {
+      console.log("ERROR UPDATING LINK: ", err)
+    })
+  }
 
   if (clickCount) {
     Link.update({
@@ -46,7 +44,6 @@ const updateLink = (req, res) => {
     {
       returning: true, where: {id: req.params.linkId}
     }).then(data => {
-      console.log('data:', data)
       res.json(data[1][0])
     }).catch((err) => {
       console.log("ERROR UPDATING LINK: ", err)
@@ -54,4 +51,16 @@ const updateLink = (req, res) => {
   }
 }
 
-module.exports = { findAllLinks, createLink, updateLink }
+const deleteLink = (req, res) => {
+  Link.destroy({
+    where: {
+      id: req.params.linkId
+    }
+  }).then(data => {
+    res.status(200).send()
+  }).catch((err) => {
+    console.log("ERROR DELETING LINK: ", err)
+  })
+}
+
+module.exports = { findAllLinks, createLink, updateLink, deleteLink }
