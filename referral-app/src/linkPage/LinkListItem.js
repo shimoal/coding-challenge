@@ -32,12 +32,14 @@ class LinkListItem extends React.Component {
           { clickCount }
         </div>
         { this.state.isEditing ?
-          <InlineEdit
-            name='new-link-name'
-            value={ newLinkName }
-            isEditing={ isEditing }
-            changeCallback={ this.editNameCallback }
-          /> :
+          <div className='inline-edit'>
+            <InlineEdit
+              name='new-link-name'
+              value={ newLinkName }
+              isEditing={ isEditing }
+              changeCallback={ this.editNameCallback }
+            />
+          </div> :
           <Link to={ linkName } onClick={() => dispatch(updateLink(id, { clickCount: clickCount + 1 }))}>
             { linkName }
           </Link>

@@ -27,3 +27,17 @@
     margin: 0;
   }
 }
+
+.inline-edit {
+  div {
+    div {
+      display: flex;
+      align-items: center;
+      span {
+        border: 1px solid $neutral-3;
+        padding: 4px;
+        margin: 0 4px;
+      }
+    }
+  }
+}
