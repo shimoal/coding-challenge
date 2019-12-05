@@ -2,6 +2,7 @@
 export const ADD_LINK = 'ADD_LINK'
 export const DELETE_LINK = 'DELETE_LINK'
 export const EDIT_LINK = 'EDIT_LINK'
+export const CLICK_LINK = 'CLICK_LINK'
 
 /* Action creators */
 export const addLink = linkName => {
@@ -14,4 +15,8 @@ export const deleteLink = linkId => {
 
 export const editLink = (linkId, newLinkName) => {
   return { type: EDIT_LINK, linkId, newLinkName }
+}
+
+export const clickLink = linkId => {
+  return { type: CLICK_LINK, linkId }
 }
