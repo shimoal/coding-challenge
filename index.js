@@ -1,8 +1,13 @@
 const express = require("express");
 const app = express();
+const query = require("./db/queries.js");
 const bodyParser = require("body-parser");
 
 app.use(bodyParser.json());
+
+//** HTTP requests to database **//
+app.get('/api/links', query.findAllLinks)
+app.post('/api/links', query.createLink)
 
 if (process.env.NODE_ENV === "production") {
 	// serve production assests
