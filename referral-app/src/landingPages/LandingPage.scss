@@ -1,0 +1,33 @@
+@import 'react-ions/src/styles/common/colors';
+
+header {
+  background: $primary-2;
+  overflow: hidden;
+  color: $neutral-2;
+  padding: 40px 0;
+  a {
+    text-decoration: none;
+  }
+}
+
+nav {
+  background: $primary-4;
+  height: calc(100vh);
+  min-width: 80px;
+  max-width: calc(15vw);
+  ul {
+    display: unset;
+    li {
+      text-align: center;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+    a {
+      text-decoration: none;
+      color: $neutral-2;
+      &:hover {
+        color: $neutral-3;
+      }
+    }
+  }
+}
