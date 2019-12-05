@@ -20,8 +20,8 @@ export const deleteLink = linkId => {
   return { type: DELETE_LINK, linkId }
 }
 
-export const editLink = (linkId, newLinkName) => {
-  return { type: EDIT_LINK, linkId, newLinkName }
+export const editLink = link => {
+  return { type: EDIT_LINK, link }
 }
 
 export const clickLink = linkId => {
@@ -47,5 +47,16 @@ export const fetchLinks = () => dispatch => {
     })
     .catch(error => {
       console.log('error', error)
+    })
+}
+
+export const updateLink = (linkId, linkName) => dispatch => {
+  axios
+    .put(`/api/link/${linkId}`, { linkName })
+    .then(({ data }) => {
+      dispatch(editLink(data))
+    })
+    .catch(error => {
+      console.log('error:', error)
     })
 }

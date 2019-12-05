@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import InlineEdit from 'react-ions/lib/components/InlineEdit'
 import Button from 'react-ions/lib/components/Button'
 import { connect } from 'react-redux'
-import { deleteLink, editLink, clickLink } from '../redux/actions'
+import { deleteLink, editLink, clickLink, updateLink } from '../redux/actions'
 import './LinkList.scss'
 
 class LinkListItem extends React.Component {
@@ -15,7 +15,7 @@ class LinkListItem extends React.Component {
   editNameCallback = event => {
     const { dispatch, link: { id }} = this.props
     this.setState({ isEditing: false })
-    dispatch(editLink(id, event.target.value))
+    dispatch(updateLink(id, event.target.value))
   }
 
   editName = () => {
@@ -23,13 +23,13 @@ class LinkListItem extends React.Component {
   }
 
   render() {
-    const { link: { id, linkName, clicked }, dispatch } = this.props
+    const { link: { id, linkName, clickCount }, dispatch } = this.props
     const { newLinkName, isEditing } = this.state
     return (
       <div className='link-list-item'>
         <div className='link-click-tracker'>
           <p>Times clicked:</p>
-          { clicked }
+          { clickCount }
         </div>
         { this.state.isEditing ?
           <InlineEdit

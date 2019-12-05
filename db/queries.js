@@ -6,6 +6,8 @@ const findAllLinks = (req, res) => {
     .findAll()
     .then((data) => {
       res.json(data)
+    }).catch((err) => {
+      console.log("ERROR FINDING LINKS: ", err)
     })
 }
 
@@ -20,4 +22,20 @@ const createLink = (req, res) => {
   })
 }
 
-module.exports = { findAllLinks, createLink }
+const updateLink = (req, res) => {
+  const { linkName, clickCount } = req.body
+  if (linkName) {
+    Link.update({
+      linkName: linkName,
+    },
+    {
+      returning: true, where: {id: req.params.linkId}
+    }).then(data => {
+      res.json(data[1][0])
+    }).catch((err) => {
+      console.log("ERROR UPDATING LINK: ", err)
+    })
+  }
+}
+
+module.exports = { findAllLinks, createLink, updateLink }

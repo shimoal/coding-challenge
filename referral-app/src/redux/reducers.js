@@ -5,7 +5,7 @@ const initialState = []
 
 export const links = (state = initialState, { type, link, links, linkId, linkName, newLinkName }) => {
   const newState = [ ...state ]
-  const i = state.findIndex(({ id }) => id === linkId )
+  const i = newState.findIndex(({ id }) => id === link.id )
   switch (type) {
     case ADD_LINK:
       return [ ...state, link ]
@@ -15,8 +15,6 @@ export const links = (state = initialState, { type, link, links, linkId, linkNam
       newState.splice(i, 1)
       return newState
     case EDIT_LINK:
-      newState[i].linkName = newLinkName
-      link.linkName = newLinkName
       newState[i] = link
       return newState
     case CLICK_LINK:

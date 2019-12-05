@@ -8,6 +8,7 @@ app.use(bodyParser.json());
 //** HTTP requests to database **//
 app.get('/api/links', query.findAllLinks)
 app.post('/api/links', query.createLink)
+app.put('/api/link/:linkId', query.updateLink)
 
 if (process.env.NODE_ENV === "production") {
 	// serve production assests
