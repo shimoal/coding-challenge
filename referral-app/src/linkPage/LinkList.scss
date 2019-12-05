@@ -9,11 +9,21 @@
   padding: 10px;
   border-bottom: 1px solid $neutral-3;
   background: $neutral-2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   a {
     text-decoration: none;
     color: $primary-3;
     &:hover {
       color: $primary-6;
     }
+  }
+}
+
+.link-click-tracker {
+  p {
+    font-size: small;
+    margin: 0;
   }
 }

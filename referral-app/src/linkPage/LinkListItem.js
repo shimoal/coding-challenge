@@ -26,6 +26,10 @@ class LinkListItem extends React.Component {
     const { newLinkName, isEditing } = this.state
     return (
       <div className='link-list-item'>
+        <div className='link-click-tracker'>
+          <p>Times clicked:</p>
+          0
+        </div>
         { this.state.isEditing ?
           <InlineEdit
             name='new-link-name'
@@ -37,18 +41,20 @@ class LinkListItem extends React.Component {
             { linkName }
           </Link>
         }
-        <Button
-          className='btn'
-          onClick={ this.editName }
-        >
-          Edit
-        </Button>
-        <Button
-          className='btn danger'
-          onClick={() => dispatch(deleteLink(linkName))}
-        >
-          Delete
-        </Button>
+        <div>
+          <Button
+            className='btn'
+            onClick={ this.editName }
+          >
+            Edit
+          </Button>
+          <Button
+            className='btn danger'
+            onClick={() => dispatch(deleteLink(linkName))}
+          >
+            Delete
+          </Button>
+        </div>
       </div>
     )
   }
