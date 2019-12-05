@@ -1,12 +1,14 @@
 @import 'react-ions/src/styles/common/colors';
 
-header {
-  background: $primary-5;
-  overflow: hidden;
-  color: $neutral-2;
-  padding: 40px 0;
-  p {
-    font-size: larger;
-    color: $neutral-1;
+.link-page {
+  header {
+    background: $primary-5;
+    overflow: hidden;
+    color: $neutral-2;
+    padding: 40px 0;
+    p {
+      font-size: larger;
+      color: $neutral-1;
+    }
   }
 }
