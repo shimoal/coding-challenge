@@ -8,13 +8,14 @@ import './LinkList.scss'
 
 class LinkListItem extends React.Component {
   state = {
-    newLinkName: this.props.linkName,
+    newLinkName: this.props.link.linkName,
     isEditing: false,
   }
 
   editNameCallback = event => {
+    const { dispatch, link: { id }} = this.props
     this.setState({ isEditing: false })
-    this.props.dispatch(editLink(this.props.linkName, event.target.value))
+    dispatch(editLink(id, event.target.value))
   }
 
   editName = () => {
@@ -22,7 +23,7 @@ class LinkListItem extends React.Component {
   }
 
   render() {
-    const { linkName, dispatch } = this.props
+    const { link: { id, linkName }, dispatch } = this.props
     const { newLinkName, isEditing } = this.state
     return (
       <div className='link-list-item'>
@@ -50,7 +51,7 @@ class LinkListItem extends React.Component {
           </Button>
           <Button
             className='btn danger'
-            onClick={() => dispatch(deleteLink(linkName))}
+            onClick={() => dispatch(deleteLink(id))}
           >
             Delete
           </Button>

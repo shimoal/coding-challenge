@@ -8,10 +8,10 @@ export const addLink = linkName => {
   return { type: ADD_LINK, linkName }
 }
 
-export const deleteLink = linkName => {
-  return { type: DELETE_LINK, linkName }
+export const deleteLink = linkId => {
+  return { type: DELETE_LINK, linkId }
 }
 
-export const editLink = (linkName, newLinkName) => {
-  return { type: EDIT_LINK, linkName, newLinkName }
+export const editLink = (linkId, newLinkName) => {
+  return { type: EDIT_LINK, linkId, newLinkName }
 }

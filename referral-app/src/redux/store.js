@@ -1,8 +1,8 @@
 import { createStore, combineReducers } from 'redux'
-import { linkNames } from './reducers'
+import { links } from './reducers'
 
 const reducer = combineReducers({
-  linkNames
+  links
 })
 
 export default createStore(reducer)

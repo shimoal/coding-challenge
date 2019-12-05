@@ -4,19 +4,19 @@ import LinkListItem from './LinkListItem'
 import './LinkList.scss'
 
 
-const LinkList = ({ linkNames }) => (
+const LinkList = ({ links }) => (
   <div className='link-list'>
     <h2>Existing Links</h2>
     {
-      linkNames.map((linkName, i) => (
-        <LinkListItem key={`link-${i}`} linkName={ linkName } />
+      links.map(link => (
+        <LinkListItem key={link.id} link={ link } />
       ))
     }
   </div>
 )
 
-const mapStateToProps = ({ linkNames }) => ({
-  linkNames
+const mapStateToProps = ({ links }) => ({
+  links
 })
 
 export default connect(mapStateToProps)(LinkList)
