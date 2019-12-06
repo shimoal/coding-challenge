@@ -67,7 +67,7 @@ section {
 
 section p {
   color: #9f9fa1;
-  line-height: 2em;
+  line-height: 26px;
 }
 
 .item-header {
@@ -86,6 +86,13 @@ section p {
   text-decoration: none;
 }
 
-.orange {
-  background: #f49c00;
+/* Styles for smaller screens */
+@media only screen and (max-width: 767px) {
+  .item-header {
+    flex-direction: column-reverse;
+    align-items: unset;
+  }
+  .item-header h2 {
+    margin: 1em 0 0;
+  }
 }
