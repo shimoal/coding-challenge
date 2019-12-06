@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import InlineEdit from 'react-ions/lib/components/InlineEdit'
 import Button from 'react-ions/lib/components/Button'
 import { connect } from 'react-redux'
-import { deleteLink, editLink, clickLink, updateLink, updateClickCount } from '../redux/actions'
+import { deleteLink, updateLink } from '../redux/actions'
 import './LinkList.scss'
 
 class LinkListItem extends React.Component {

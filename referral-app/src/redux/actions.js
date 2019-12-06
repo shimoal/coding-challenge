@@ -7,11 +7,11 @@ export const DELETE_LINK = 'DELETE_LINK'
 export const EDIT_LINK = 'EDIT_LINK'
 
 /* Action creators */
-export const addLink = link => {
+const addLink = link => {
   return { type: ADD_LINK, link }
 }
 
-export const addLinks = links => {
+const addLinks = links => {
   return { type: ADD_LINKS, links }
 }
 
@@ -19,7 +19,7 @@ const deleteLinkId = linkId => {
   return { type: DELETE_LINK, linkId }
 }
 
-export const editLink = link => {
+const editLink = link => {
   return { type: EDIT_LINK, link }
 }
 

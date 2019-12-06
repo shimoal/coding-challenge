@@ -5,7 +5,7 @@ import Input from 'react-ions/lib/components/Input'
 import Button from 'react-ions/lib/components/Button'
 import formStyle from 'react-ions/lib/components/FormGroup/style.scss'
 import './CreateLinkForm.scss'
-import { addLink, createLink } from '../redux/actions'
+import { createLink } from '../redux/actions'
 
 const initialSchema = { 'link-name': { value: '' } }
 
