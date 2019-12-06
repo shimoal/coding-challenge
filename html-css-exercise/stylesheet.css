@@ -4,16 +4,43 @@
 
 li {
   counter-increment: step-counter;
-  border: 1px solid gray;
-  display: flex;
+  position: relative;
+  margin-bottom: 0;
+  padding-bottom: 2.5em;
 }
 
+/* for line connecting numbers */
 li::before {
+  content:"";
+  position: absolute;
+  left: -13px;
+  border-left: 1px solid black;
+  height: 60%;
+  width: 1px;
+  top: 56px;
+}
+
+
+/* style list numbers */
+li::after {
   content: counter(step-counter);
   padding: 10px;
   background-color: red;
+  height: 18px;
+  width: 18px;
+  color: white;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  left: -30px;
+  top: 0px;
 }
 
 .items {
   list-style: none;
+}
+
+.items section {
+  border: 1px solid lightgray;
 }
