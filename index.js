@@ -12,9 +12,16 @@ app.post('/api/links', query.createLink)
 app.put('/api/link/:linkId', query.updateLink)
 app.delete('/api/link/:linkId', query.deleteLink)
 
+app.get('/html-css-exercise', (req, res) => {
+	res.sendFile(path.resolve(__dirname, "html-css-exercise", "index.html"))
+})
+
 if (process.env.NODE_ENV === "production") {
 	// serve production assests
 	app.use(express.static("referral-app/build"));
+	app.get('/html-css-exercise', (req, res) => {
+		res.sendFile(path.resolve(__dirname, "html-css-exercise", "index.html"))
+	})
 	app.get("*", (req, res) => {
 		res.sendFile(path.resolve(__dirname, "referral-app", "build", "index.html"));
 	});
