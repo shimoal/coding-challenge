@@ -1,5 +1,7 @@
 .activity-feed {
-  margin: 3em;
+  margin: 3em auto;
+  max-width: 1000px;
+  font-family: sans-serif;
 }
 
 li {
@@ -15,9 +17,9 @@ li::before {
   position: absolute;
   left: -13px;
   border-left: 2px solid lightgray;
-  height: 60%;
+  height: 70%;
   width: 1px;
-  top: 56px;
+  top: 50px;
 }
 
 /* no line should show after last number in list */
@@ -41,6 +43,18 @@ li::after {
   top: 0px;
 }
 
+li:nth-child(1)::after {
+  background-color: #35c1a1;
+}
+
+li:nth-child(2)::after {
+  background-color:  #f49c00;
+}
+
+li:nth-child(3)::after {
+  background-color: #e74c35;
+}
+
 .items {
   list-style: none;
 }
@@ -53,6 +67,7 @@ section {
 
 section p {
   color: #9f9fa1;
+  line-height: 2em;
 }
 
 .item-header {
@@ -62,11 +77,15 @@ section p {
 }
 
 .item-header h2 {
-  font-size: 1.3em;
+  font-size: 1.2em;
   margin: 0;
 }
 
 .item-header a {
-  color: #2391f7;
+  color: #9bc9ea;
   text-decoration: none;
+}
+
+.orange {
+  background: #f49c00;
 }
