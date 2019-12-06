@@ -20,6 +20,10 @@ li::before {
   top: 56px;
 }
 
+/* no line should show after last number in list */
+li:last-child::before {
+  height: 0;
+}
 
 /* style list numbers */
 li::after {
@@ -43,4 +47,5 @@ li::after {
 
 .items section {
   border: 1px solid lightgray;
+  margin: 1em;
 }
