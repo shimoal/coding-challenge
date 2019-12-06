@@ -1,5 +1,5 @@
 .activity-feed {
-
+  margin: 3em;
 }
 
 li {
@@ -14,7 +14,7 @@ li::before {
   content:"";
   position: absolute;
   left: -13px;
-  border-left: 1px solid black;
+  border-left: 2px solid lightgray;
   height: 60%;
   width: 1px;
   top: 56px;
@@ -45,7 +45,28 @@ li::after {
   list-style: none;
 }
 
-.items section {
-  border: 1px solid lightgray;
+section {
+  border: 1px solid #ebebed;
   margin: 1em;
+  padding: 1em;
+}
+
+section p {
+  color: #9f9fa1;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-header h2 {
+  font-size: 1.3em;
+  margin: 0;
+}
+
+.item-header a {
+  color: #2391f7;
+  text-decoration: none;
 }
