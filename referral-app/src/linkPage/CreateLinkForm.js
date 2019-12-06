@@ -11,7 +11,8 @@ const initialSchema = { 'link-name': { value: '' } }
 
 class CreateLinkForm extends React.Component {
   state = {
-    schema: initialSchema
+    schema: initialSchema,
+    error: '',
   }
 
   handleChange = fields => {
@@ -20,27 +21,52 @@ class CreateLinkForm extends React.Component {
 
   handleSubmit = (event, fields) => {
     event.preventDefault()
-    this.props.dispatch(createLink(fields['link-name'].value))
-    this.setState({ schema: initialSchema })
+    const linkName = fields['link-name'].value
+    const error = this.validateLinkName(linkName)
+    if (!error) {
+      this.props.dispatch(createLink(fields['link-name'].value))
+      this.setState({ schema: initialSchema, error: '' })
+    } else {
+      this.setState({ error })
+    }
+  }
+
+  validateLinkName = linkName => {
+    const existingLinkNames = this.props.links.map(({ linkName }) => linkName)
+    const errors = {
+      existingName: 'This link already exists.',
+      linkNameEmpty: 'Your link must be at least 1 character long',
+    }
+    if (existingLinkNames.includes(linkName)) {
+      return errors.existingName
+    }
+    if (linkName.length === 0) {
+      return errors.linkNameEmpty
+    }
+    return null
   }
 
   render() {
+    const { schema, error } = this.state
     return (
       <FormGroup
         changeCallback={this.handleChange}
         submitCallback={this.handleSubmit}
         debounceTime={100}
-        schema={this.state.schema}
+        schema={schema}
       >
         <h2>Add new link to list</h2>
-        <div className='fieldset-container'>
-          <Input
-            name='link-name'
-            label='Link Name'
-            type='text'
-            optClass={formStyle.field}
-            placeholder='my new link'
-          />
+        <div className={`fieldset-container ${error.length && 'error'}`} >
+          <div>
+            <Input
+              name='link-name'
+              label='Link Name'
+              type='text'
+              optClass={formStyle.field}
+              placeholder='my new link'
+            />
+            { error }
+          </div>
           <Button className='btn' type='submit'>Submit</Button>
         </div>
       </FormGroup>
@@ -48,4 +74,6 @@ class CreateLinkForm extends React.Component {
   }
 }
 
-export default connect(null)(CreateLinkForm)
+const mapStateToProps = ({ links }) => ({ links })
+
+export default connect(mapStateToProps)(CreateLinkForm)

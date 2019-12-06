@@ -15,11 +15,21 @@ form {
 .fieldset-container {
   display: flex;
   align-items: flex-end;
-  justify-content: center;
+  text-align: left;
   button {
     height: fit-content;
     margin: 4px;
   }
+}
+
+.error {
+  .input-component {
+    input {
+      border: 1px solid red;
+    }
+  }
+  color: red;
+  font-size: 14px;
 }
 
 .input-component {
